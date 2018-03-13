@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
-import * as gijgo from '../../../gijgo-angular/node_modules/@types/gijgo';
+import * as types from 'gijgo';
 
 declare var jQuery: any;
 
@@ -15,9 +15,9 @@ export class DatePickerComponent implements AfterViewInit, OnDestroy   {
   @Output() open: EventEmitter<any> = new EventEmitter();
   @Output() close: EventEmitter<any> = new EventEmitter();
 
-  @Input() instance: gijgo.Gijgo.DatePicker;
+  @Input() instance: types.DatePicker;
 
-  @Input() configuration: gijgo.Gijgo.DatePickerSettings;
+  @Input() configuration: types.DatePickerSettings;
 
   ngAfterViewInit() {
     this.instance = jQuery(this.input.nativeElement).datepicker(this.configuration);
