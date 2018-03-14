@@ -18,7 +18,7 @@ export class TreeComponent implements AfterViewInit, OnDestroy   {
   ngAfterViewInit() {
     this.instance = jQuery(this.div.nativeElement).tree(this.configuration);
   }  
-  
+
   ngOnDestroy() {
     this.instance.destroy();
   }

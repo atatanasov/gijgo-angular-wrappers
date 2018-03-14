@@ -4,16 +4,16 @@ import * as types from 'gijgo';
 declare var jQuery: any;
 
 @Component({
-  selector: 'gijgo-datepicker',
+  selector: 'gijgo-timepicker',
   template: '<input #input type="text">'
 })
-export class DatePickerComponent implements AfterViewInit, OnDestroy   {
+export class TimePickerComponent implements AfterViewInit, OnDestroy   {
 
   @ViewChild('input') input: ElementRef;
 
-  @Input() instance: types.DatePicker;
+  @Input() instance: types.TimePicker;
 
-  @Input() configuration: types.DatePickerSettings;
+  @Input() configuration: types.TimePickerSettings;
 
   ngAfterViewInit() {
     this.instance = jQuery(this.input.nativeElement).datepicker(this.configuration);    
