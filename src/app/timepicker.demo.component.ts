@@ -1,27 +1,26 @@
 import { Component, ViewChild } from '@angular/core';
-import { DatePickerComponent } from '../components/datepicker.component'
+import { TimePickerComponent } from '../components/timepicker.component'
 import * as types from 'gijgo'
 
 @Component({
-  selector: 'datepicker-demo',
-  template: '<gijgo-datepicker #datepicker [configuration]="configuration"></gijgo-datepicker><br/>' +
-  'Selected Date: {{date}} <br/><br/>' +
+  template: '<gijgo-timepicker #timepicker [configuration]="configuration"></gijgo-timepicker><br/>' +
+  'Selected Time: {{time}} <br/><br/>' +
   '<button class="btn btn-default" (click)="setValue()">Set New Value</button>' +
   '<p>{{eventLog}}</p>'
 })
 
-export class DatePickerDemoComponent {
-  @ViewChild("datepicker") datepicker: DatePickerComponent;
+export class TimePickerDemoComponent {
+  @ViewChild("timepicker") timepicker: TimePickerComponent;
 
-  configuration: types.DatePickerSettings;
+  configuration: types.TimePickerSettings;
 
-  date = '03/08/2018';
+  time = '17:50';
 
   eventLog: string = '';
 
   constructor() {
     this.configuration = { 
-      value: this.date,
+      value: this.time,
       open: (e) => {
         this.eventLog += 'Open is fired. ';
       },
@@ -29,14 +28,14 @@ export class DatePickerDemoComponent {
         this.eventLog += 'Close is fired. ';
       },
       change: (e) => {
-        this.date = this.datepicker.instance.value().toString();
+        this.time = this.timepicker.instance.value().toString();
         this.eventLog += 'Change is fired. ';
       }
     };
   }
 
   setValue() {
-    this.datepicker.instance.value('03/12/2018');
+    this.timepicker.instance.value('15:12');
   }
   
 }

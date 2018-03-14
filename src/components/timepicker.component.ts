@@ -16,7 +16,7 @@ export class TimePickerComponent implements AfterViewInit, OnDestroy   {
   @Input() configuration: types.TimePickerSettings;
 
   ngAfterViewInit() {
-    this.instance = jQuery(this.input.nativeElement).datepicker(this.configuration);    
+    this.instance = jQuery(this.input.nativeElement).timepicker(this.configuration);    
   }  
   
   ngOnDestroy() {
