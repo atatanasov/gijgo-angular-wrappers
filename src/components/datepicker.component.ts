@@ -21,6 +21,7 @@ export class DatePickerComponent implements AfterViewInit, OnDestroy   {
 
   ngAfterViewInit() {
     this.instance = jQuery(this.input.nativeElement).datepicker(this.configuration);
+    
     this.instance.on('change', (e) => {
       this.change.emit(this.instance.value().toString());
     }).on('open', (e) => {
@@ -28,6 +29,7 @@ export class DatePickerComponent implements AfterViewInit, OnDestroy   {
     }).on('close', (e) => {
       this.close.emit();
     });
+    
   }  
   
   ngOnDestroy() {
