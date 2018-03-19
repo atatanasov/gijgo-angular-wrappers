@@ -4,10 +4,14 @@ import * as types from 'gijgo'
 
 @Component({
   selector: 'datepicker-demo',
-  template: '<gijgo-datepicker #datepicker [configuration]="configuration"></gijgo-datepicker><br/>' +
-  'Selected Date: {{date}} <br/><br/>' +
-  '<button class="btn btn-default" (click)="setValue()">Set New Value</button>' +
-  '<p>{{eventLog}}</p>'
+  template: `
+    <div style="padding: 10px">
+      <gijgo-datepicker #datepicker [configuration]="configuration"></gijgo-datepicker><br/>
+      Selected Date: {{date}} <br/><br/>
+      <button class="btn btn-default" (click)="setValue()">Set New Value</button><br/><br/>
+      Event Log: <p>{{eventLog}}</p>
+    </div>
+  `
 })
 
 export class DatePickerDemoComponent {

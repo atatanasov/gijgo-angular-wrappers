@@ -3,10 +3,17 @@ import { TreeComponent } from '../components/tree.component'
 import * as types from 'gijgo'
 
 @Component({
-  template: '<button class="btn btn-default" (click)="expandAll()">Expand All</button> ' +
-  '<button class="btn btn-default" (click)="collapseAll()">Collapse All</button><br/><br/>' +
-  '<gijgo-tree #tree [configuration]="configuration"></gijgo-tree><br/>' +
-  '<p>{{eventLog}}</p>'
+  template: `
+    <p>
+    <button class="btn btn-default" (click)="expandAll()">Expand All</button>
+    <button class="btn btn-default" (click)="collapseAll()">Collapse All</button>
+    </p>
+    <br/>
+    <gijgo-tree #tree [configuration]="configuration"></gijgo-tree>
+    <br/>
+    <p>Event Log:</p>
+    <div [innerHTML]="eventLog"></div>
+  `
 })
 
 export class TreeDemoComponent {
@@ -18,12 +25,16 @@ export class TreeDemoComponent {
 
   constructor() {
     this.configuration = {
-      dataSource: [ { text: 'foo', children: [ { text: 'bar' } ] } ],
+      dataSource: [ 
+        { text: 'Node 1', children: [ { text: 'Node 1.1' }, { text: 'Node 1.2' },  { text: 'Node 1.3' } ] },
+        { text: 'Node 2', children: [ { text: 'Node 2.1' }, { text: 'Node 2.2' } ] },
+        { text: 'Node 3', children: [ { text: 'Node 3.1' }, { text: 'Node 3.2' } ] }
+      ],
       select: (e, node, id) => {
-        this.eventLog += 'Node with id=' + id + ' is selected.';
+        this.eventLog += '<p>Node with id=' + id + ' is selected.</p>';
       },
       unselect: (e, node, id) => {
-        this.eventLog += 'Node with id=' + id + ' is unselected.';
+        this.eventLog += '<p>Node with id=' + id + ' is unselected.</p>';
       }
     };
   }
@@ -34,6 +45,5 @@ export class TreeDemoComponent {
 
   collapseAll() {
     this.tree.instance.collapseAll();
-  }
-  
+  }  
 }

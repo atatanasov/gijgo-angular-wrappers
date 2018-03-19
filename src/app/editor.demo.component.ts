@@ -3,7 +3,12 @@ import { EditorComponent } from '../components/editor.component'
 import * as types from 'gijgo'
 
 @Component({
-  template: '<gijgo-editor #editor [configuration]="configuration"></gijgo-editor><br/>'
+  template: `
+  <gijgo-editor #editor [configuration]="configuration"></gijgo-editor>
+  <br/>
+  <p>HTML:</p>
+  {{html}}
+  `
 })
 
 export class EditorDemoComponent {
@@ -13,9 +18,14 @@ export class EditorDemoComponent {
 
   eventLog: string = '';
 
+  html: string = '';
+
   constructor() {
     this.configuration = {
-      uiLibrary: 'bootstrap4'
+      uiLibrary: 'bootstrap4',
+      changed: (e) => {
+        this.html = this.editor.instance.content().toString();
+      }
     };
   }  
 }
