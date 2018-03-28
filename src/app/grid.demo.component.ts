@@ -52,7 +52,7 @@ export class GridDemoComponent {
   }
 
   remove(e) {
-    this.grid.instance.removeRow(e.data.ID);
+    this.grid.instance.removeRow(e.data.id);
   }
 }
 
