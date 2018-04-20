@@ -25,6 +25,7 @@ export class DatePickerDemoComponent {
 
   constructor() {
     this.configuration = { 
+      width: 200,
       value: this.date,
       open: (e) => {
         this.eventLog += 'Open is fired. ';

@@ -19,7 +19,8 @@ export class TimePickerDemoComponent {
   eventLog: string = '';
 
   constructor() {
-    this.configuration = { 
+    this.configuration = {
+      width: 276,
       value: this.time,
       open: (e) => {
         this.eventLog += 'Open is fired. ';
