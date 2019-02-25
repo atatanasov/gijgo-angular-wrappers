@@ -5,7 +5,7 @@ import * as types from 'gijgo'
 @Component({
   template: '<gijgo-timepicker #timepicker [configuration]="configuration"></gijgo-timepicker><br/>' +
   'Selected Time: {{time}} <br/><br/>' +
-  '<button class="btn btn-default" (click)="setValue()">Set New Value</button>' +
+  '<button class="btn btn-primary" (click)="setValue()">Set New Value</button>' +
   '<p>{{eventLog}}</p>'
 })
 

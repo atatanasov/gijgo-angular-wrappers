@@ -5,10 +5,10 @@ import * as types from 'gijgo'
 @Component({
   selector: 'datepicker-demo',
   template: `
-    <div style="padding: 10px">
+    <div>
       <gijgo-datepicker #datepicker [configuration]="configuration"></gijgo-datepicker><br/>
       Selected Date: {{date}} <br/><br/>
-      <button class="btn btn-default" (click)="setValue()">Set New Value</button><br/><br/>
+      <button class="btn btn-primary" (click)="setValue()">Set New Value</button><br/><br/>
       Event Log: <p>{{eventLog}}</p>
     </div>
   `
@@ -19,7 +19,7 @@ export class DatePickerDemoComponent {
 
   configuration: types.DatePickerSettings;
 
-  date = '03/08/2018';
+  date = '03/01/2019';
 
   eventLog: string = '';
 
@@ -27,6 +27,7 @@ export class DatePickerDemoComponent {
     this.configuration = { 
       width: 200,
       value: this.date,
+      //locale: 'pt-br',
       open: (e) => {
         this.eventLog += 'Open is fired. ';
       },
@@ -41,7 +42,7 @@ export class DatePickerDemoComponent {
   }
 
   setValue() {
-    this.datepicker.instance.value('03/12/2018');
+    this.datepicker.instance.value('03/12/2019');
   }
   
 }

@@ -7,8 +7,8 @@ import * as types from 'gijgo'
   template: `
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <p>
-      <button class="btn btn-default" (click)="addRecord()">Add New</button>  &nbsp;
-      <button class="btn btn-default" (click)="getAll()">Get All Data</button>
+      <button class="btn btn-primary" (click)="addRecord()">Add New</button>  &nbsp;
+      <button class="btn btn-primary" (click)="getAll()">Get All Data</button>
     </p>
     <gijgo-grid #grid [configuration]="configuration"></gijgo-grid>
   `

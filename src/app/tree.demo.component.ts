@@ -5,8 +5,8 @@ import * as types from 'gijgo'
 @Component({
   template: `
     <p>
-    <button class="btn btn-default" (click)="expandAll()">Expand All</button>
-    <button class="btn btn-default" (click)="collapseAll()">Collapse All</button>
+    <button class="btn btn-primary" (click)="expandAll()">Expand All</button> &nbsp;
+    <button class="btn btn-primary" (click)="collapseAll()">Collapse All</button>
     </p>
     <br/>
     <gijgo-tree #tree [configuration]="configuration"></gijgo-tree>

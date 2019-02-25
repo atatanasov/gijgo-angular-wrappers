@@ -5,7 +5,7 @@ import * as types from 'gijgo'
 @Component({
   template: '<gijgo-datetimepicker #datetimepicker [configuration]="configuration"></gijgo-datetimepicker><br/>' +
   'Selected DateTime: {{time}} <br/><br/>' +
-  '<button class="btn btn-default" (click)="setValue()">Set New Value</button>' +
+  '<button class="btn btn-primary" (click)="setValue()">Set New Value</button>' +
   '<p>{{eventLog}}</p>'
 })
 
@@ -14,7 +14,7 @@ export class DateTimePickerDemoComponent {
 
   configuration: types.DateTimePickerSettings;
 
-  time = '17:50 04/20/2018';
+  time = '17:50 03/20/2019';
 
   eventLog: string = '';
 
@@ -23,6 +23,8 @@ export class DateTimePickerDemoComponent {
       width: 276,
       value: this.time,
       format: 'HH:MM mm/dd/yyyy',
+      footer: true,
+      modal: true,
       change: (e) => {
         this.time = this.timepicker.instance.value().toString();
         this.eventLog += 'Change is fired.';
